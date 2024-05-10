@@ -10,13 +10,7 @@ class Card {
     public:
         Card();
         Card(int v, char t);
-        void Display();
-        int getNumber() const {
-            return Number;
-        };
-        char getType() const {
-            return Type;
-        };
+        void Display(int, char);
 };
 
 

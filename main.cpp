@@ -2,25 +2,10 @@
 #include<vector>
 #include "Cards.h"
 #include "Cards.cpp"
-std::vector<Card> deck;
-std::vector<char> suits = {(char)03, (char)04, (char)05, (char)06};
-void createDeck() {
-    for (int num = 0; num <= 13; num++) {
-        for(char suit : suits) {
-            deck.push_back(Card(num, suit));
-        }
-    }
-}
-
-void displayDeck() {
-    for(Card& card : deck) {
-        card.Display();
-    }
-}
+Card card;
+std::vector<char> types = {(char)03, (char)04, (char)05, (char)06}; // ASCII code for the various card types
 
 int main() {
- 
-    createDeck();
-    displayDeck();
+    card.Display(10, (char)03);
     return 0;
 }
