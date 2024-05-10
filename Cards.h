@@ -5,7 +5,7 @@
 class Card {
     private:
         int Number;
-        wchar_t Type;
+        char Type;
     
     public:
         Card();

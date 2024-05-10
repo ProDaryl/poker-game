@@ -6,8 +6,7 @@
 
 class Deck {
 private:
-    std::vector<Card> cards; 
-    size_t nextCardIndex;     
+    std::vector<Card> cards;      
 
 public:
     Deck();
