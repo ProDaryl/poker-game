@@ -9,7 +9,6 @@ class Card {
     
     public:
         Card();
-        Card(int v, char t);
         void Display(int, char);
 };
 
