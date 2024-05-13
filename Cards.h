@@ -8,7 +8,9 @@ class Card {
         char Type;
     
     public:
-        Card(int cardNumber, char cardType);
+        Card(int n, char s);
+        int getNumber() {return Number;}
+        char getType() {return Type;}
         void Display();
 };
 

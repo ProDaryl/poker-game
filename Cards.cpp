@@ -1,11 +1,8 @@
 #include<iostream>
 #include "Cards.h"
+using namespace std;
 
-Card::Card(int cardNumber, char cardType)
-{
-    Number = cardNumber;
-    Type = cardType;
-}
+Card::Card(int n, char s) : Number(n), Type(s) {}
 
 
 void Card::Display()
@@ -17,42 +14,42 @@ void Card::Display()
     const char KING = 'K';
     
     // Define the card representation
-    const std::string CARD_TOP = " ______________";
-    const std::string CARD_SIDE = "|              |";
-    const std::string CARD_MIDDLE = "|   _________  |";
-    const std::string CARD_NUM_TOP = "|  |         | |";
-    const std::string CARD_BOTTOM = "|  |_________| |";
-    const std::string CARD_SPACE  = "|  |         | |";
-    const std::string CARD_END = "|              |";
-    const std::string CARD_BASE = "()--------------";
+    const string CARD_TOP = " ______________";
+    const string CARD_SIDE = "|              |";
+    const string CARD_MIDDLE = "|   _________  |";
+    const string CARD_NUM_TOP = "|  |         | |";
+    const string CARD_BOTTOM = "|  |_________| |";
+    const string CARD_SPACE  = "|  |         | |";
+    const string CARD_END = "|              |";
+    const string CARD_BASE = "()--------------";
     
     // Display the card based on its number and type
-    std::cout << CARD_TOP << std::endl;
-    std::cout << CARD_SIDE << std::endl;
-    std::cout << CARD_MIDDLE << std::endl;
-    std::cout << CARD_NUM_TOP << std::endl;
+    cout << CARD_TOP << endl;
+    cout << CARD_SIDE << endl;
+    cout << CARD_MIDDLE << endl;
+    cout << CARD_NUM_TOP << endl;
     
     // Display the card number or face
     if (Number >= 2 && Number <= 10){
-        std::cout << "|  | " << Number <<"       | |" << std::endl;
+        cout << "|  | " << Number <<"       | |" << endl;
     }
     else if (Number == 1) {
-        std::cout << "|  | " << "A" <<"       | |" << std::endl;
+        cout << "|  | " << ACE <<"       | |" << endl;
     }
     else if (Number == 11) {
-        std::cout << "|  | " << "J" <<"       | |" << std::endl;
+        cout << "|  | " << JACK <<"       | |" << endl;
     }
     else if (Number == 12) {
-        std::cout << "|  | " << "K" <<"       | |" << std::endl;
+        cout << "|  | " << KING <<"       | |" << endl;
     }
     else if (Number == 13) {
-        std::cout << "|  | " << "Q" <<"       | |" << std::endl;
+        cout << "|  | " << QUEEN <<"       | |" << endl;
     }
 
-    std::cout << CARD_SPACE <<std::endl;
-    std::cout << "|  |    "<< Type <<"      | |" <<std::endl;
-    std::cout << CARD_SPACE <<std::endl;
-    std::cout << CARD_BOTTOM << std::endl;
-    std::cout << CARD_END << std::endl;
-    std::cout << CARD_BASE << std::endl;
+    cout << CARD_SPACE <<endl;
+    cout << "|  |    "<< Type <<"    | |" <<endl;
+    cout << CARD_SPACE <<endl;
+    cout << CARD_BOTTOM << endl;
+    cout << CARD_END << endl;
+    cout << CARD_BASE << endl;
 }
