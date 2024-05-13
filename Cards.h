@@ -8,8 +8,8 @@ class Card {
         char Type;
     
     public:
-        Card();
-        void Display(int, char);
+        Card(int cardNumber, char cardType);
+        void Display();
 };
 
 

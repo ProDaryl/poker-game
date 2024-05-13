@@ -1,9 +1,14 @@
 #include<iostream>
 #include "Cards.h"
 
-Card::Card() {}
+Card::Card(int cardNumber, char cardType)
+{
+    Number = cardNumber;
+    Type = cardType;
+}
 
-void Card::Display(int num, char type)
+
+void Card::Display()
 {
     // Define constants for special card numbers
     const char ACE = 'A';
@@ -28,24 +33,24 @@ void Card::Display(int num, char type)
     std::cout << CARD_NUM_TOP << std::endl;
     
     // Display the card number or face
-    if (num >= 2 && num <= 10){
-        std::cout << "|  | " << num <<"       | |" << std::endl;
+    if (Number >= 2 && Number <= 10){
+        std::cout << "|  | " << Number <<"       | |" << std::endl;
     }
-    else if (num == 1) {
+    else if (Number == 1) {
         std::cout << "|  | " << "A" <<"       | |" << std::endl;
     }
-    else if (num == 11) {
+    else if (Number == 11) {
         std::cout << "|  | " << "J" <<"       | |" << std::endl;
     }
-    else if (num == 12) {
+    else if (Number == 12) {
         std::cout << "|  | " << "K" <<"       | |" << std::endl;
     }
-    else if (num == 13) {
+    else if (Number == 13) {
         std::cout << "|  | " << "Q" <<"       | |" << std::endl;
     }
 
     std::cout << CARD_SPACE <<std::endl;
-    std::cout << "|  |    "<<type <<"  | |" <<std::endl;
+    std::cout << "|  |    "<< Type <<"      | |" <<std::endl;
     std::cout << CARD_SPACE <<std::endl;
     std::cout << CARD_BOTTOM << std::endl;
     std::cout << CARD_END << std::endl;
