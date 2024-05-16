@@ -1,1 +1,90 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
+#include <algorithm>
+struct Card {
+    enum Suit { HEARTS, DIAMONDS, CLUBS, SPADES };
+    enum Value { TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE };
 
+    Suit suit;
+    Value value;
+
+    bool operator<(const Card& other) const {
+        return value < other.value;
+    }
+};
+
+enum HandStrength {
+    HIGH_CARD,
+    PAIR,
+    TWO_PAIR,
+    THREE_OF_A_KIND,
+    STRAIGHT,
+    FLUSH,
+    FULL_HOUSE,
+    FOUR_OF_A_KIND,
+    STRAIGHT_FLUSH,
+    ROYAL_FLUSH
+};
+
+HandStrength checkHandStrength(const Card* hand, int handSize) {
+    // TODO: Implement more advanced hand evaluation logic
+// This is a very basic implementation that only checks for high card, pair, and two pair
+std::vector<Card> sortedHand(hand, hand + handSize);
+    std::sort(sortedHand.begin(), sortedHand.end());
+
+    if (sortedHand[0].value == sortedHand[1].value) {
+        return PAIR;
+    }
+
+    if (sortedHand[1].value == sortedHand[2].value || sortedHand[0].value == sortedHand[2].value) {
+        return TWO_PAIR;
+    }
+
+    return HIGH_CARD;
+}
+
+void initializeDeck(std::vector<Card>& deck) {
+    // Fill the vector with all possible cards
+for (int suitIdx = 0; suitIdx < 4; ++suitIdx) {
+        for (int valueIdx = 0; valueIdx < 13; ++valueIdx) {
+            deck.push_back({ static_cast<Card::Suit>(suitIdx), static_cast<Card::Value>(valueIdx) });
+        }
+    }
+    std::random_shuffle(deck.begin(), deck.end());
+}
+
+void dealCards(const std::vector<Card>& deck, Card* playerHand, Card* dealerHand) {
+    // Deal the cards to the player and dealer
+for (int i = 0; i < 2; ++i) {
+        playerHand[i] = deck[i];
+    }
+    dealerHand[0] = deck[2];
+}
+
+int main() {
+    // Initialize the deck
+std::vector<Card> deck(52);
+    initializeDeck(deck);
+
+    // Assign cards to players and dealer
+Card playerHand[2];
+    Card dealerHand[1];
+    dealCards(deck, playerHand, dealerHand);
+
+    // Check hand strength
+HandStrength playerStrength = checkHandStrength(playerHand, 2);
+    HandStrength dealerStrength = checkHandStrength(dealerHand, 1);
+
+    // Compare hands
+if (playerStrength > dealerStrength) {
+        std::cout << "Player wins!" << std::endl;
+    } else if (playerStrength < dealerStrength) {
+        std::cout << "Dealer wins!" << std::endl;
+    } else {
+        std::cout << "It's a tie!" <<std::endl;
+}
+
+  return 0;
+}
