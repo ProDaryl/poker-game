@@ -22,7 +22,9 @@ private:
     bool hasFiveofAKind(vector<Card> &hand);
     bool hasStraightFlush(vector<Card> &hand);
     bool hasRoyalFlush(vector<Card> &hand);
-    string determineWinner(const vector<Card> &player1hand, const vector<Card> &player2hand, const vector<Card> &computerHand);
+    int determineHandType(vector<Card>& combinedhand);
+    int winningHandwinningIndex(int& winningHand);
+    void determineWinner(const vector<vector<Card>>& playerHands, vector<string>& playerNames, const vector<Card> &computerHand);
 
     std::vector<Humanplayer *> players;
     Player computer;
