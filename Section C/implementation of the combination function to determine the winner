@@ -1,0 +1,7 @@
+const std::vector<PokerHand> PokerGame::COMBINATIONS = {
+    PokerHand::ROYAL_FLUSH,
+    PokerHand::STRAIGHT_FLUSH,
+    PokerHand::FOUR_OF_A_KIND,
+    PokerHand::FULL_HOUSE,
+    PokerHand::FLUSH,
+    PokerHand::STRAIGHT,
