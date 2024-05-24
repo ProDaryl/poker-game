@@ -1,6 +1,43 @@
-#include<iostream>
-#include<vector>
-class Card {
-public:
-    enum Suit {HEART, DIAMOND, CLUB, SPADE};
-    enum Value {ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING};
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+const int MAX_PLAYERS = 4; // max number of players
+const int MAX_CARDS = 13; // max number of cards in a deck
+
+int main() {
+    int players[MAX_PLAYERS]; // array to hold player cards
+    int pc[MAX_CARDS]; // array to hold PC cards
+    int winner = 0; // variable to hold the winner
+
+    // initialize player cards
+    for(int i = 0; i < MAX_PLAYERS; i++) {
+        for(int j = 0; j < MAX_CARDS; j++) {
+            players[i] = rand() % 10 + 1; // assign random value to each card
+        }
+    }
+
+    // initialize PC cards
+    for(int i = 0; i < MAX_CARDS; i++) {
+        pc[i] = rand() % 10 + 1; // assign random value to each card
+    }
+
+    // match each player's card with the corresponding PC card
+    for(int i = 0; i < MAX_PLAYERS; i++) {
+        for(int j = 0; j < MAX_CARDS; j++) {
+            players[i] += pc[j]; // add the values of each pair
+        }
+    }
+
+    // find the winner by comparing the total values
+    for(int i = 0; i < MAX_PLAYERS; i++) {
+        if(players[i] > players[winner]) {
+            winner = i;
+        }
+    }
+
+    cout << "The winner is player " << winner + 1 << endl;
+
+    return 0;
+}
