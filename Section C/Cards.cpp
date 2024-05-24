@@ -33,16 +33,16 @@ void Card::Display()
         cout << "|  | " << Number <<"       | |" << endl;
     }
     else if (Number == 1) {
-        cout << "|  | " << "A" <<"       | |" << endl;
+        cout << "|  | " << ACE <<"       | |" << endl;
     }
     else if (Number == 11) {
-        cout << "|  | " << "J" <<"       | |" << endl;
+        cout << "|  | " << JACK <<"       | |" << endl;
     }
     else if (Number == 12) {
-        cout << "|  | " << "K" <<"       | |" << endl;
+        cout << "|  | " << KING <<"       | |" << endl;
     }
     else if (Number == 13) {
-        cout << "|  | " << "Q" <<"       | |" << endl;
+        cout << "|  | " << QUEEN <<"       | |" << endl;
     }
 
     cout << CARD_SPACE <<endl;
