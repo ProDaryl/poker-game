@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "build",
+        "type": "shell",
+        "command": "g++",
+        "args": ["-g", "Cards.cpp","Player.cpp","Deck.cpp","HumanPlayer.cpp", "PokerGame.cpp","main.cpp", "-o", "test"],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
+  
