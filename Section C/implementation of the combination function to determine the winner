@@ -1,7 +1,5 @@
-const std::vector<PokerHand> PokerGame::COMBINATIONS = {
-    PokerHand::ROYAL_FLUSH,
-    PokerHand::STRAIGHT_FLUSH,
-    PokerHand::FOUR_OF_A_KIND,
-    PokerHand::FULL_HOUSE,
-    PokerHand::FLUSH,
-    PokerHand::STRAIGHT,
+#include<iostream>
+#include<vector>
+class Card {
+public:
+    enum Suit {HEART, DIAMOND, CLUB, SPADE};
